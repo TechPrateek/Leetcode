@@ -22,13 +22,16 @@ public:
         }
         int n=cnt/2;
         temp=head;
-        while(n!=1){//ek node pehle hi rukna hai
+        while(temp!=NULL){//ek node pehle hi rukna hai
             n--;
+            if(n==0){
+                ListNode* del = temp->next;
+                temp->next = temp->next->next; 
+                delete del;
+                break;
+            }
             temp=temp->next;
         }
-        ListNode* del = temp->next;
-        temp->next = temp->next->next; 
-        delete del;
         return head;
     }
 };
